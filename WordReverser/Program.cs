@@ -1,15 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace WordReverser
+public static class Kata
 {
-    class Program
+    public static string ReverseWords(string str)
     {
-        static void Main(string[] args)
+        // Grabs the individual words
+        var words = str.Split(' ');
+
+        // FOR EACH non-empty word,
+        foreach (var w in words.Where(x => x != String.Empty))
         {
+            // Reverse and replace the word in the string.
+            str = str.Replace(w, new string(w.ToCharArray().Reverse().ToArray()));
         }
-    }
+
+        return str;
+    }    
 }
